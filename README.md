@@ -63,7 +63,7 @@ To test
 ```bash
 cd ./test
 ./test.sh <base_url>  				#example ./test.sh http://localhost
-temp$ ./test.sh http://localhost		#sample test run
+./test.sh http://localhost		        #sample test run
 Test Passed: list users
 Test Passed: search users
 ```
