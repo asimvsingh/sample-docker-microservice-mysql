@@ -24,7 +24,7 @@ cd ./test-database
 ./build.sh					#builds the test database docker image 
 ./start-db-container.sh <version_number>        # starts the database container	
 ```
-#Worker App setup
+# Worker App setup
 Worker app will be running in a docker container, and will take database connection information as input ( as environment variables)
 
 ```bash
@@ -35,7 +35,7 @@ build.sh 					#This will build the worker-app docker image
 Worker app is a node js app that is exposed at http://localhost:8123 with 2 working endpoints : /users, /search?email..
 This app interacts with a mysql database to get data to populate the search results.
 
-#Test
+# Test
 To test the entire setup:
 1. Make sure the test database container or your own mysql server is running and is setup with the test tables in ```bash ./test-database/files/setup.sql``` file.
 2. Make sure the worker node js app docker container is running.
