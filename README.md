@@ -22,7 +22,7 @@ cd ./test-database
 ./build.sh					#builds the test database docker image 
 ./start-db-container.sh <version_number>        # starts the database container	
 ```
-How to stop and remove the test base docker container.
+How to stop and remove the test databse base docker container.
 ```bash
 docker stop db
 docker rm db
