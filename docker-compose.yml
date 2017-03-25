@@ -1,0 +1,11 @@
+version: '2'
+services:
+  users-service:
+    build: ./users-service
+    container_name: worker-app 
+    ports:
+     - "8123:8123"
+    environment:
+     - DATABASE_HOST=db
+  db:
+    build: ./test-database
