@@ -38,7 +38,9 @@ build.sh 					#This will build the worker-app docker image
 ```
 Worker app is a node js app that is exposed at http://localhost:8123 with 2 working endpoints : /users, /search?email..
 This app interacts with a mysql database to get data to populate the search results.
+
 How to stop and remove the worker app docker container
+
 ```bash
 docker stop worker-app
 docker rm worker-app
@@ -81,7 +83,7 @@ services:
 ```
 Now build and run your container with :
 ```
-docker-compose build i				# this will build the containers defined in docker-compose.yml
+docker-compose build				# this will build the containers defined in docker-compose.yml
 docker-compose up 				# this will start the containers
 ```
 Now you can run test.sh to test the stack the same way.
