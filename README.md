@@ -1,7 +1,5 @@
-# worker-docker-microservice
-
+# worker-docker-microservice 
 This project sets up a simple node.js microservice running in a docker container, interacting with a mysql database.
-For more info please visit [Application used from this site http://www.dwmkerr.com/learn-docker-by-building-a-microservice ]
 
 # Pre-requisites
 
@@ -24,6 +22,12 @@ cd ./test-database
 ./build.sh					#builds the test database docker image 
 ./start-db-container.sh <version_number>        # starts the database container	
 ```
+How to stop and remove the test base docker container.
+```bash
+docker stop db
+docker rm db
+```
+
 # Worker App setup
 Worker app will be running in a docker container, and will take database connection information as input ( as environment variables)
 
@@ -34,7 +38,11 @@ build.sh 					#This will build the worker-app docker image
 ```
 Worker app is a node js app that is exposed at http://localhost:8123 with 2 working endpoints : /users, /search?email..
 This app interacts with a mysql database to get data to populate the search results.
-
+How to stop and remove the worker app docker container
+```bash
+docker stop worker-app
+docker rm worker-app
+```
 # Test
 To test the entire setup:
 1. Make sure the test database container or your own mysql server is running and is setup with the test tables in ```./test-database/files/setup.sql``` file.
@@ -48,4 +56,34 @@ To test
 ```bash
 cd ./test
 ./test.sh <base_url>  				#example ./test.sh http://localhost
+temp$ ./test.sh http://localhost		#sample test run
+Test Passed: list users
+Test Passed: search users
 ```
+# Future/Advance work ( suggested work , not tested )
+If you want to compose the entire stack into one using Docker compose, docker-compose.yml file is also provided here.
+Please instal [Docker Compose](https://docs.docker.com/compose/install/) before proceeding with docker compose
+```bash
+version: '2'
+services:
+  worker-service:
+    build: ./worker-service
+    container_name: worker-app
+    ports:
+     - "8123:8123"
+    environment:
+     - DATABASE_HOST= localhost
+     - DATABASE_NAME=users
+     - DATABASE_USER=users_service
+     - DATABASE_PORT=3306
+  db:
+    build: ./test-database
+```
+Now build and run your container with :
+```
+docker-compose build i				# this will build the containers defined in docker-compose.yml
+docker-compose up 				# this will start the containers
+```
+Now you can run test.sh to test the stack the same way.
+
+

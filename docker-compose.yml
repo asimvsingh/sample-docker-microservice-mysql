@@ -1,11 +1,14 @@
 version: '2'
 services:
-  users-service:
+  worker-service:
     build: ./users-service
     container_name: worker-app 
     ports:
      - "8123:8123"
     environment:
-     - DATABASE_HOST=db
+     - DATABASE_HOST= localhost
+     - DATABASE_NAME=users
+     - DATABASE_USER=users_service
+     - DATABASE_PORT=3306
   db:
     build: ./test-database
