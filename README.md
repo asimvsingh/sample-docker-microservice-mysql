@@ -37,7 +37,7 @@ This app interacts with a mysql database to get data to populate the search resu
 
 # Test
 To test the entire setup:
-1. Make sure the test database container or your own mysql server is running and is setup with the test tables in ```bash ./test-database/files/setup.sql``` file.
+1. Make sure the test database container or your own mysql server is running and is setup with the test tables in ```./test-database/files/setup.sql``` file.
 2. Make sure the worker node js app docker container is running.
 ```bash
 CONTAINER ID        IMAGE                COMMAND                  CREATED             STATUS              PORTS                    NAMES
