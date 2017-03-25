@@ -5,7 +5,6 @@ function http_return_code {
    endpoint=$1
    url=$2
    return_code=$(curl -s -o /dev/null -I -w "%{http_code}" $url:8123/$endpoint)
-   echo $return_code
    return $return_code
 }
 

@@ -67,6 +67,11 @@ temp$ ./test.sh http://localhost		#sample test run
 Test Passed: list users
 Test Passed: search users
 ```
+**Note if your running docker on mac with docker-machine find your docker-machine virtual machine ip and use that instead of localhost**
+```
+docker-machine ip <docker_vm> 		 	#example docker-machine ip default
+```
+
 # Future/Advance work ( suggested work , not tested )
 If you want to compose the entire stack into one using Docker compose, docker-compose.yml file is also provided here.
 Please instal [Docker Compose](https://docs.docker.com/compose/install/) before proceeding with docker compose
