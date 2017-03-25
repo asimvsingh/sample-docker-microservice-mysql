@@ -35,6 +35,11 @@ Worker app will be running in a docker container, and will take database connect
 cd ./worker-service
 build.sh 					#This will build the worker-app docker image
 ./start-web-app.sh <version_number>             #This will start/run the worker-app docker image in a container
+docker logs -f worker-app                       #check the docker container log for succesfull launch of the container
+--- Customer Service---
+Connecting to customer repository...
+Connected. Starting server...
+Server started successfully, running on port 8123.
 ```
 Worker app is a node js app that is exposed at http://localhost:8123 with 2 working endpoints : /users, /search?email..
 This app interacts with a mysql database to get data to populate the search results.
